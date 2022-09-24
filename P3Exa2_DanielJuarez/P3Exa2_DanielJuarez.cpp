@@ -89,13 +89,13 @@ int main() {
 		Node* M = new Node(StringM);
 		N->getNext()->setNext(M);
 
-		if (RaizM = RaizN) {
+		if (TotalNumbersN == TotalNumbersM) {
 			N->getData()->Print(); //N
 			cout << endl;
-			cout << setw(TotalNumbersM);
 			N->getNext()->getData()->Print(); //O
 			cout << endl;
 			N->getNext()->getNext()->getData()->Print(); //M
+		} else {
+			cout << "No Se Puede Realizar la Operacion: Matrices de Diferente Dimension";
 		}
-		
 };
