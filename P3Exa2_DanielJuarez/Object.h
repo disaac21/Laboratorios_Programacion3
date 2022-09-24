@@ -1,5 +1,8 @@
 #pragma once
-class Object
-{
+class Object {
+
+public:
+	virtual void Print() = 0;
+
 };
 

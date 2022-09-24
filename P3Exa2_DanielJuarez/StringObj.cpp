@@ -20,3 +20,7 @@ string StringObj::getcadena() const {
 void StringObj::setcadena(string cadena) {
     this->cadena = cadena;
 }
+
+void StringObj::Print() {
+    cout << this->cadena;
+}

@@ -22,7 +22,7 @@ int EncontrarTotal(string input) {
 string FormatMatriz(int total, string dec1) {
 
 	int raiz = sqrt(total);		int cont = 0;
-	string number = "";			string mod1 = "|";
+	string number = "";			string mod1 = "| ";
 
 	for (int i = 1; i < dec1.length() - 1; i++) {
 		if (dec1.at(i) == ',') {
@@ -38,7 +38,7 @@ string FormatMatriz(int total, string dec1) {
 		if (cont == raiz) {
 			mod1 += "|";
 			mod1 += "\n";
-			mod1 += "|";
+			mod1 += "| ";
 			cont = 0;
 		}
 	}
@@ -52,39 +52,40 @@ string FormatMatriz(int total, string dec1) {
 
 int main() {
 
-	string UserInputN, UserInputM;
+	string UserInputN, UserInputM, Third; char OperaChar;
 	cout << ">>N="; cin >> UserInputN;
 	cout << ">>M="; cin >> UserInputM;
+	cout << ">>"; cin >> Third;
+
 
 	//Matriz N
 		//Find Total
-		int TotalNumbers = EncontrarTotal(UserInputN) - 1;
+		int TotalNumbersN = EncontrarTotal(UserInputN) - 1;
 		//Formatear
-		string mod1 = FormatMatriz(TotalNumbers, UserInputN);
-		cout << mod1;
+		string MatrizN = FormatMatriz(TotalNumbersN, UserInputN);
+		cout << MatrizN << endl; cout << "-------" << endl;
+		//Creo Nodo
+		StringObj* StringN = new StringObj(MatrizN);
+		Node* N = new Node(StringN);
 
+	//Operador Aritmetico
+		OperaChar = Third.at(1);
+		Operator* Opera = new Operator(OperaChar);
+		Node* O = new Node(Opera);
+		N->setNext(O);
+	//Matriz M
+		//Find Total
+		int TotalNumbersM = EncontrarTotal(UserInputM) - 1;
+		//Formatear
+		string MatrizM = FormatMatriz(TotalNumbersM, UserInputM);
+		cout << MatrizM << endl;
+		//Creo Nodo
+		StringObj* StringM = new StringObj(MatrizM);
+		Node* M = new Node(StringM);
+		N->getNext()->setNext(M);
 
-	StringObj* StringN = new StringObj(mod1);
-	Node* N = new Node(StringN);
-
-	cout << endl << N->getData();
-
-	/*Matriz MatN(Vector, Orden);
-	Node* N = new Node();*/
-
-	//for (int i = 0; i < dec1.length(); i++) {
-	//	/*if (dec1.at(i) == ',' || dec1.at(i) == '[' || dec1.at(i) == ']') {
-	//		dec1.at(i) = ' ';
-	//	}*/
-	//	if (dec1.at(i) == '[') {
-
-	//	}
-	//}
-	
-	//Node* N = new Node((Object * (MatrizN));
-
-
-	/*cout << ">>" << dec1.at(0) << " operator " << dec2.at(0) << endl;
-	cout << "  =" << endl << "  MATRIZ" << endl << endl;*/
+		N->getData()->Print(); //N
+		N->getNext()->getData()->Print(); //O
+		N->getNext()->getNext()->getData()->Print(); //M
 
 };

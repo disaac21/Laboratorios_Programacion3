@@ -3,10 +3,11 @@
 
 class Node {
 
+public:
 	Object* data;
 	Node* next_node;
 
-	public:
+	
 		Node();
 		Node(Object*);
 		~Node();

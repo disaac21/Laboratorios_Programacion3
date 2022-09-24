@@ -1,5 +1,6 @@
 #pragma once
 #include "Object.h"
+#include <iostream>
 
 class Operator : public Object {
 
@@ -12,4 +13,5 @@ class Operator : public Object {
 
 		char getTipo();
 
+		void Print();
 };

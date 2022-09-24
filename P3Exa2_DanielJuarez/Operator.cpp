@@ -1,4 +1,6 @@
 #include "Operator.h"
+#include <iostream>
+using namespace std;
 
 Operator::Operator()
 {
@@ -14,4 +16,8 @@ char Operator::getTipo() {
 
 Operator::~Operator()
 {
+}
+
+void Operator::Print() {
+	cout << this->operacion;
 }
