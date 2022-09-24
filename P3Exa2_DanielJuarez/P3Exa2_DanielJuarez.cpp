@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <math.h>
+#include <iomanip>
 #include "Node.h"
 #include "Object.h"
 #include "Operator.h"
@@ -19,12 +20,12 @@ int EncontrarTotal(string input) {
 	return total;
 }
 
-string FormatMatriz(int total, string dec1) {
+string FormatMatriz(int total, int raiz, string dec1) {
 
-	int raiz = sqrt(total);		int cont = 0;
-	string number = "";			string mod1 = "| ";
+	int cont = 0;
+	string number = "", mod1 = "| ";
 
-	for (int i = 1; i < dec1.length() - 1; i++) {
+	for (int i = 3; i < dec1.length() - 1; i++) {
 		if (dec1.at(i) == ',') {
 			mod1 += number;
 			mod1 += " ";
@@ -53,17 +54,19 @@ string FormatMatriz(int total, string dec1) {
 int main() {
 
 	string UserInputN, UserInputM, Third; char OperaChar;
-	cout << ">>N="; cin >> UserInputN;
-	cout << ">>M="; cin >> UserInputM;
+	cout << ">>"; cin >> UserInputN;
+	cout << ">>"; cin >> UserInputM;
 	cout << ">>"; cin >> Third;
 
 
 	//Matriz N
 		//Find Total
+		cout << "Total: " << EncontrarTotal(UserInputN) << endl;
 		int TotalNumbersN = EncontrarTotal(UserInputN) - 1;
 		//Formatear
-		string MatrizN = FormatMatriz(TotalNumbersN, UserInputN);
-		cout << MatrizN << endl; cout << "-------" << endl;
+		int RaizN = sqrt(TotalNumbersN);
+		string MatrizN = FormatMatriz(TotalNumbersN, RaizN, UserInputN);
+			//cout << MatrizN << endl; cout << "-------" << endl;
 		//Creo Nodo
 		StringObj* StringN = new StringObj(MatrizN);
 		Node* N = new Node(StringN);
@@ -73,19 +76,17 @@ int main() {
 		Operator* Opera = new Operator(OperaChar);
 		Node* O = new Node(Opera);
 		N->setNext(O);
+
 	//Matriz M
 		//Find Total
 		int TotalNumbersM = EncontrarTotal(UserInputM) - 1;
 		//Formatear
-		string MatrizM = FormatMatriz(TotalNumbersM, UserInputM);
-		cout << MatrizM << endl;
+		int RaizM = sqrt(TotalNumbersM);
+		string MatrizM = FormatMatriz(TotalNumbersM, RaizM, UserInputM);
+			//cout << MatrizM << endl;
 		//Creo Nodo
 		StringObj* StringM = new StringObj(MatrizM);
 		Node* M = new Node(StringM);
 		N->getNext()->setNext(M);
-
-		N->getData()->Print(); //N
-		N->getNext()->getData()->Print(); //O
-		N->getNext()->getNext()->getData()->Print(); //M
 
 };
