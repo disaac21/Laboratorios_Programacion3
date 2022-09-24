@@ -61,7 +61,7 @@ int main() {
 
 	//Matriz N
 		//Find Total
-		cout << "Total: " << EncontrarTotal(UserInputN) << endl;
+			//cout << "Total: " << EncontrarTotal(UserInputN) << endl;
 		int TotalNumbersN = EncontrarTotal(UserInputN) - 1;
 		//Formatear
 		int RaizN = sqrt(TotalNumbersN);
@@ -89,4 +89,13 @@ int main() {
 		Node* M = new Node(StringM);
 		N->getNext()->setNext(M);
 
+		if (RaizM = RaizN) {
+			N->getData()->Print(); //N
+			cout << endl;
+			cout << setw(TotalNumbersM);
+			N->getNext()->getData()->Print(); //O
+			cout << endl;
+			N->getNext()->getNext()->getData()->Print(); //M
+		}
+		
 };
