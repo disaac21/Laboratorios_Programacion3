@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <math.h>
 #include "Node.h"
 #include "Object.h"
 #include "Operator.h"
@@ -24,17 +25,27 @@ int main() {
 		}
 	}
 	cout << "total: " << total << endl; //-1
+	int raiz = sqrt(total - 1);     int cont = 0;     string number = "";
 	for (int i = 1; i < dec1.length()-1; i++) {
-		
 		if (dec1.at(i) == ',') {
-			mod1 += " |";
+			mod1 += number;
+			mod1 += " ";
+			number = "";
+			++cont;
+		} else {
+			number += dec1.at(i);
+		}
+
+		if (cont == raiz) {
+			mod1 += "|";
 			mod1 += "\n";
 			mod1 += "|";
-		} else {
-			mod1 += " ";
-			mod1 += +dec1.at(i);
+			cont = 0;
 		}
 	}
+	mod1 += number;
+	mod1 += " ";
+	number = "";
 	mod1 += "|";
 	cout << mod1;
 
