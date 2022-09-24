@@ -9,30 +9,29 @@
 #include "StringObj.h"
 using namespace std;
 
-int main() {
-
-	string dec1, dec2, cadN, cadM, operacion;
-	cout << ">>N=";
-	cin >> dec1;
-	cout << ">>M=";
-	cin >> dec2;
-
-	string mod1 = "|";
+int EncontrarTotal(string input) {
 	int total = 0;
-	for (int i = 0; i < dec1.length(); i++)	{
-		if (dec1.at(i) == ',' || dec1.at(i) == '[' || dec1.at(i) == ']') {
+	for (int i = 0; i < input.length(); i++) {
+		if (input.at(i) == ',' || input.at(i) == '[' || input.at(i) == ']') {
 			total++;
 		}
 	}
-	cout << "total: " << total << endl; //-1
-	int raiz = sqrt(total - 1);     int cont = 0;     string number = "";
-	for (int i = 1; i < dec1.length()-1; i++) {
+	return total;
+}
+
+string FormatMatriz(int total, string dec1) {
+
+	int raiz = sqrt(total);		int cont = 0;
+	string number = "";			string mod1 = "|";
+
+	for (int i = 1; i < dec1.length() - 1; i++) {
 		if (dec1.at(i) == ',') {
 			mod1 += number;
 			mod1 += " ";
 			number = "";
 			++cont;
-		} else {
+		}
+		else {
 			number += dec1.at(i);
 		}
 
@@ -47,11 +46,28 @@ int main() {
 	mod1 += " ";
 	number = "";
 	mod1 += "|";
-	cout << mod1;
+
+	return mod1;
+}
+
+int main() {
+
+	string UserInputN, UserInputM;
+	cout << ">>N="; cin >> UserInputN;
+	cout << ">>M="; cin >> UserInputM;
+
+	//Matriz N
+		//Find Total
+		int TotalNumbers = EncontrarTotal(UserInputN) - 1;
+		//Formatear
+		string mod1 = FormatMatriz(TotalNumbers, UserInputN);
+		cout << mod1;
 
 
-	/*StringObj* StringN = new StringObj(dec1);
-	Node* N = new Node(StringN);*/
+	StringObj* StringN = new StringObj(mod1);
+	Node* N = new Node(StringN);
+
+	cout << endl << N->getData();
 
 	/*Matriz MatN(Vector, Orden);
 	Node* N = new Node();*/
