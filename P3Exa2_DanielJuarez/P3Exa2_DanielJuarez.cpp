@@ -27,9 +27,7 @@ string FormatMatriz(int total, int raiz, string dec1) {
 
 	for (int i = 3; i < dec1.length() - 1; i++) {
 		if (dec1.at(i) == ',') {
-			mod1 += number;
-			mod1 += " ";
-			number = "";
+			mod1 += number; mod1 += " "; number = "";
 			++cont;
 		}
 		else {
@@ -37,16 +35,11 @@ string FormatMatriz(int total, int raiz, string dec1) {
 		}
 
 		if (cont == raiz) {
-			mod1 += "|";
-			mod1 += "\n";
-			mod1 += "| ";
+			mod1 += "|"; mod1 += "\n"; mod1 += "| ";
 			cont = 0;
 		}
 	}
-	mod1 += number;
-	mod1 += " ";
-	number = "";
-	mod1 += "|";
+	mod1 += number; mod1 += " "; number = ""; mod1 += "|";
 
 	return mod1;
 }
@@ -89,13 +82,18 @@ int main() {
 		Node* M = new Node(StringM);
 		N->getNext()->setNext(M);
 
-		if (TotalNumbersN == TotalNumbersM) {
-			N->getData()->Print(); //N
-			cout << endl;
-			N->getNext()->getData()->Print(); //O
-			cout << endl;
-			N->getNext()->getNext()->getData()->Print(); //M
-		} else {
-			cout << "No Se Puede Realizar la Operacion: Matrices de Diferente Dimension";
-		}
+	//Validacion + Print
+	if (TotalNumbersN == TotalNumbersM) {
+
+		//try while
+
+		N->getData()->Print(); //N
+		cout << endl;
+		N->getNext()->getData()->Print(); //O
+		cout << endl;
+		N->getNext()->getNext()->getData()->Print(); //M
+	} else {
+		cout << "No Se Puede Realizar la Operacion: Matrices de Diferente Dimension";
+	}
+
 };
