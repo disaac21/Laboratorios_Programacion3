@@ -1,0 +1,4 @@
+Persona
+string nombre
+string apellido
+int edad

@@ -1,0 +1,4 @@
+Rombo
+int a
+int d
+int D

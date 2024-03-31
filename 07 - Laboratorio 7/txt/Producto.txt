@@ -1,0 +1,3 @@
+Producto
+string nombre
+double precio

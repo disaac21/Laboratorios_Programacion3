@@ -1,0 +1,5 @@
+Servidor_CFG
+char Nombre
+int Memoria_GB
+int Disco_GB
+int Red_Mb

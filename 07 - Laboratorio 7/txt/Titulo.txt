@@ -1,0 +1,4 @@
+Titulo
+int Numero
+string Cadena
+double Decimal

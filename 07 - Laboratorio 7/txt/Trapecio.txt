@@ -1,0 +1,6 @@
+Trapecio
+int a
+int b
+int c
+int h
+int B

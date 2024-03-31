@@ -1,0 +1,1 @@
+int MainOpcion, PersonasOpcion, ProductosOpcion, VentasOpcion;

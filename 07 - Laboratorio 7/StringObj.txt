@@ -1,0 +1,2 @@
+StringObj
+string cadena

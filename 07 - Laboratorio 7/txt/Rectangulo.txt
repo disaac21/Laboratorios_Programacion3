@@ -1,0 +1,3 @@
+Rectangulo
+int a
+int b
